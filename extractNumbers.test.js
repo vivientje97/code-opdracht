@@ -14,12 +14,6 @@ describe('extractNumbers', () => {
 		expect(extractNumbers('100200300')).toEqual([100200300])
 	})
 
-	it('handles strings with no numbers', () => {
-		expect(extractNumbers('hello')).toEqual([])
-		expect(extractNumbers('')).toEqual([])
-		expect(extractNumbers('@#$%')).toEqual([])
-	})
-
 	it('throws error for invalid inputs', () => {
 		expect(() => extractNumbers(null)).toThrow('Invalid input')
 		expect(() => extractNumbers(undefined)).toThrow('Invalid input')

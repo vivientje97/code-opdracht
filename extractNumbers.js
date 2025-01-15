@@ -5,28 +5,17 @@
  * @throws {Error} If input is invalid
  */
 function extractNumbers(text) {
-	if (text === null ||
-		text === undefined ||
-		typeof text !== 'string') {
+	if (typeof text !== 'string') {
 		throw new Error('Invalid input: Must provide a valid string')
 	}
 
-	const numbers = text.match(/\d+/g)
+	const numbers = text.match(/\d+/g).map(n => +n)
 
-	if (!numbers) {
-		return []
-	}
-
-	const result = new Array(numbers.length)
+	const result = []
 	for (let i = 0; i < numbers.length; i++) {
-		const num = +numbers[i]
-		if (!isFinite(num)) {
-			throw new Error('Invalid input: Numbers must be finite')
-		}
-		result[i] = num
+		result.push(numbers[i])
 	}
 
 	return result
 }
-
 export { extractNumbers }
