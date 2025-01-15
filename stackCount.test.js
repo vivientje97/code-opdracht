@@ -9,7 +9,7 @@ describe('stackCount', () => {
 	})
 
 	it('performs stack counting correctly', () => {
-		expect(stackCount('1234567890')).toBe(9)
+		expect(stackCount('1234567890123456789012345678901234567890123456789012345678901234567890')).toBe(9)
 		expect(stackCount('999')).toBe(9)
 		expect(stackCount('12')).toBe(3)
 		expect(stackCount('123')).toBe(6)
