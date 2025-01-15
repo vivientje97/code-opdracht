@@ -1,5 +1,5 @@
 import { expect, describe, it } from 'vitest'
-import { addNumbers } from '../1.js'
+import { addNumbers } from './addNumbers.js'
 
 describe('addNumbers function', () => {
 	it('adds two positive numbers correctly', () => {
