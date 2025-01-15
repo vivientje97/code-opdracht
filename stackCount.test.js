@@ -1,30 +1,6 @@
 import { expect, describe, it } from 'vitest'
 import { stackCount } from './stackCount.js'
 
-function generateRandomString(length) {
-	const chars = 'abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()'
-	let result = ''
-	for (let i = 0; i < length; i++) {
-		result += chars.charAt(Math.floor(Math.random() * chars.length))
-	}
-	return result
-}
-
-describe('stackCount with random strings', () => {
-	it('handles random string input correctly', () => {
-		const randomLength = Math.floor(Math.random() * (100 - 10 + 1)) + 10
-		const randomString = generateRandomString(randomLength)
-		const numbersOnly = randomString.replace(/\D/g, '')
-
-		if (numbersOnly.length > 0) {
-			const result = stackCount(numbersOnly)
-			expect(result).toBeGreaterThanOrEqual(0)
-			expect(result).toBeLessThanOrEqual(9)
-			expect(Number.isInteger(result)).toBe(true)
-		}
-	})
-})
-
 describe('stackCount', () => {
 	it('handles single digit numbers correctly', () => {
 		expect(stackCount('1')).toBe(1)
@@ -53,5 +29,29 @@ describe('stackCount', () => {
 		expect(() => stackCount('12.34')).toThrow('Invalid input')
 		expect(() => stackCount('1a2b3c')).toThrow('Invalid input')
 		expect(() => stackCount('-123')).toThrow('Invalid input')
+	})
+})
+
+function generateRandomString(length) {
+	const chars = 'abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()'
+	let result = ''
+	for (let i = 0; i < length; i++) {
+		result += chars.charAt(Math.floor(Math.random() * chars.length))
+	}
+	return result
+}
+
+describe('stackCount with random strings', () => {
+	it('handles random string input correctly', () => {
+		const randomLength = Math.floor(Math.random() * (100 - 10 + 1)) + 10
+		const randomString = generateRandomString(randomLength)
+		const numbersOnly = randomString.replace(/\D/g, '')
+
+		if (numbersOnly.length > 0) {
+			const result = stackCount(numbersOnly)
+			expect(result).toBeGreaterThanOrEqual(0)
+			expect(result).toBeLessThanOrEqual(9)
+			expect(Number.isInteger(result)).toBe(true)
+		}
 	})
 })
