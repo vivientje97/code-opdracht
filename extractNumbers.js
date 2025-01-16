@@ -9,13 +9,8 @@ function extractNumbers(text) {
 		throw new Error('Invalid input: Must provide a valid string')
 	}
 
-	const numbers = text.match(/\d+/g).map(n => +n)
+	const digits = text.match(/\d/g).map(Number)
 
-	const result = []
-	for (let i = 0; i < numbers.length; i++) {
-		result.push(numbers[i])
-	}
-
-	return result
+	return digits
 }
 export { extractNumbers }
