@@ -13,6 +13,12 @@ describe('stackCount', () => {
 		expect(stackCount('999')).toBe(9)
 		expect(stackCount('12')).toBe(3)
 		expect(stackCount('123')).toBe(6)
+		expect(stackCount('1234')).toBe(8)
+		expect(stackCount('12345')).toBe(6)
+		expect(stackCount('123456')).toBe(3)
+		expect(stackCount('1234567')).toBe(1)
+		expect(stackCount('12345678')).toBe(9)
+		expect(stackCount('123456789')).toBe(9)
 	})
 
 	it('throws error for invalid inputs', () => {
@@ -33,7 +39,7 @@ describe('stackCount', () => {
 })
 
 function generateRandomString(length) {
-	const chars = 'abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()'
+	const chars = '1234567890'
 	let result = ''
 	for (let i = 0; i < length; i++) {
 		result += chars.charAt(Math.floor(Math.random() * chars.length))

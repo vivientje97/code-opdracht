@@ -24,7 +24,7 @@ describe('extractNumbers', () => {
 	})
 
 	it('handles mixed content correctly', () => {
-		expect(extractNumbers('mix123ed456content789')).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9])
+		expect(extractNumbers('mix123ed456→○€𝟶content789')).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9])
 		expect(extractNumbers('1a2b3c')).toEqual([1, 2, 3])
 		expect(extractNumbers('---1---2---3---')).toEqual([1, 2, 3])
 		expect(extractNumbers('𝟶\\1\/○€2//3😀😇→')).toEqual([1, 2, 3])
