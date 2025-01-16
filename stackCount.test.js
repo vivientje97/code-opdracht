@@ -13,7 +13,7 @@ describe('stackCount', () => {
 		expect(stackCount('999')).toBe(9)
 		expect(stackCount('12')).toBe(3)
 		expect(stackCount('123')).toBe(6)
-		expect(stackCount('1234')).toBe(8)
+		expect(stackCount('1234')).toBe(1)
 		expect(stackCount('12345')).toBe(6)
 		expect(stackCount('123456')).toBe(3)
 		expect(stackCount('1234567')).toBe(1)
@@ -51,10 +51,9 @@ describe('stackCount with random strings', () => {
 	it('handles random string input correctly', () => {
 		const randomLength = Math.floor(Math.random() * (100 - 10 + 1)) + 10
 		const randomString = generateRandomString(randomLength)
-		const numbersOnly = randomString.replace(/\D/g, '')
 
-		if (numbersOnly.length > 0) {
-			const result = stackCount(numbersOnly)
+		if (randomString.length > 0) {
+			const result = stackCount(randomString)
 			expect(result).toBeGreaterThanOrEqual(0)
 			expect(result).toBeLessThanOrEqual(9)
 			expect(Number.isInteger(result)).toBe(true)
