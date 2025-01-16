@@ -10,12 +10,15 @@ function replaceTextLists(text, things = [], otherThings = []) {
 
 	if (maxLength === 0) return text
 
-	const replacementMap = new Map()
-	for (let i = 0; i < maxLength; i++) {
-		replacementMap.set(things[i], otherThings[i])
-	}
+	let currentIndex = 0
+	return text.split('').map(char => {
+		const thingIndex = things.indexOf(char)
+		if (thingIndex === -1) return char
 
-	return text.split('').map(char => replacementMap.get(char) || char).join('')
+		const replacement = otherThings[currentIndex % maxLength]
+		currentIndex++
+		return replacement
+	}).join('')
 
 
 	//Benchmark assignment
