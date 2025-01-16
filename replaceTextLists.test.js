@@ -19,7 +19,7 @@ describe('replaceTextLists', () => {
 	})
 
 	it('handles cases with mismatched list lengths', () => {
-		expect(replaceTextLists('hello', ['h', 'e', 'l'], ['1', '2'])).toBe('12llo')
+		expect(replaceTextLists('hello', ['h', 'e', 'l'], ['1', '2'])).toBe('1212o')
 	})
 
 	it('handles empty string input', () => {

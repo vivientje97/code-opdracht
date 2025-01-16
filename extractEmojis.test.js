@@ -18,6 +18,6 @@ describe('extractEmojis', () => {
 	})
 
 	it('handles complex strings with emojis and special characters', () => {
-		expect(extractEmojis('✨🌟💥@!')).toEqual(['✨', '🌟', '💥'])
+		expect(extractEmojis('✨🌟→○€𝟶💥@!')).toEqual(['✨', '🌟', '💥'])
 	})
 })

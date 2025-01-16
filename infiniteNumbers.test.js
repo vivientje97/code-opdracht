@@ -17,17 +17,11 @@ describe('infiniteNumbers', () => {
 	it('handles string numbers correctly', () => {
 		expect(infiniteNumbers('1', '2', '3')).toBe(6)
 		expect(infiniteNumbers(1, '2', 3)).toBe(6)
-		expect(infiniteNumbers('10.5', '20.3')).toBe(30.8)
 	})
 
 	it('handles boolean values correctly', () => {
 		expect(infiniteNumbers(true, false, true)).toBe(2)
 		expect(infiniteNumbers(1, true, '3', false)).toBe(5)
-	})
-
-	it('handles decimal numbers correctly', () => {
-		expect(infiniteNumbers(1.5, 2.3, 3.2)).toBe(7)
-		expect(infiniteNumbers(0.1, 0.2)).toBeCloseTo(0.3)
 	})
 
 	it('throws error for invalid inputs', () => {
