@@ -16,6 +16,18 @@ function replaceTextLists(text, things = [], otherThings = []) {
 	}
 
 	return text.split('').map(char => replacementMap.get(char) || char).join('')
+
+
+	//Benchmark assignment
+	// if (!things.length) return text
+	//
+	// const lookup = {}
+	// things.forEach((char, i) => {
+	// 	lookup[char] = otherThings[i]
+	// })
+	//
+	// return text.replace(/./g, char => lookup[char] || char)
 }
 
 export { replaceTextLists }
+
